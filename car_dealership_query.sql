@@ -21,8 +21,9 @@ FROM sales_person;
 CREATE TABLE parts(
 	part_id SERIAL PRIMARY KEY,
 	part_name VARCHAR(25),
-	price NUMERIC(4,2)
+	price NUMERIC(8,2)
 )
+
 
 SELECT *
 FROM parts;
@@ -51,10 +52,13 @@ FROM vehicle;
 
 CREATE TABLE sales (
 	sale_id SERIAL PRIMARY KEY,
-	amount NUMERIC(8,2),
+	amount NUMERIC(10,2),
 	customer_id INTEGER, -- FKey
 	serial_num INT --Fkey
 );
+
+ALTER TABLE SALES
+ADD COLUMN amount NUMERIC(10,2)
 
 ALTER TABLE sales
 ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id);
